@@ -1,5 +1,24 @@
-<h1>{{ user.get_full_name() }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User index</title>
+</head>
+<body>
+    <h1>{{ user.get_full_name() }}</h1>
 <img id="profile" src="{{ user.image_url }}">
-<button id="editbtn">Edit profile</button><button id="deletebtn">Delete profile</button>
+
+<form action="/users/{{user.id}}/edit" method="get">
+    <input type="submit" value="Edit Profile" id="editbtn"/>
+</form>
+<form action="/users/{{user.id}}/delete" method="post">
+    <input type="submit" value="Delete Profile" id="deletebtn"/>
+</form>
+
 
 <a href="/">Go back</a>
+</body>
+</html>
+
+

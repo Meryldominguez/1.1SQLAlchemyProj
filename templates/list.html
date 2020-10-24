@@ -1,15 +1,20 @@
-<h1>Users</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Users</h1>
 <ul>
   {% for user in users %}
-  <li><a href="/{{ user.id }}">{{ user.get_full_name() }}</a></li>
+  <li><a href="/users/{{ user.id }}">{{ user.get_full_name() }}</a></li>
   {% endfor %}
 </ul>
-<h2>Add User</h2>
-<form method="POST">
-  <p>First Name:     <input name="first_name"></p>
-  <p>Last Name:  <input name="last_name"></p>
-  <p>Photo:   <input name="image_url"></p>
-  <button>Save</button>
+
+<form action="/users/new" method="get">
+  <input type="submit" value="Add New Profile" id="addbtn"/>
 </form>
-
-
+</body>
+</html>
